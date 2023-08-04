@@ -1,8 +1,8 @@
-# EOS Cryptography Proposal 2
+# EOS Cryptography Proposal 2 b
 
-- **Project Name:** EOS Cryptography Proposal 2
+- **Project Name:** EOS Cryptography Proposal 2 b
 - **Team Name:** ZeroPass
-- **EOS Payment Address:** zeropassxxxx
+- **EOS Payment Address:** portxxxxxxxx
 - **[Level](https://github.com/eosnetworkfoundation/grant-framework#grant-levels):** 3
 - **Pomelo Grant(s)**  
 https://pomelo.io/grants/ygc2lp2oe  
@@ -16,7 +16,7 @@ https://pomelo.io/grants/bot4eden
 
 - **Contact Name:** Luka Percic
 - **Contact Email:** zeropass@pm.me
-- **Website:** [zeropass.io](https://zeropass.io/)
+- **Website:** [port.link](https://port.link/)
 
 ## Project Overview
 
