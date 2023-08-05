@@ -107,7 +107,7 @@ We can also attach research from our documentation (which is not completly up to
 | 0a. | License | MIT |
 | 0b. | Documentation | Documentation and step by step guide will be updated in [README.md](https://github.com/ZeroPass/ack/blob/master/README.md).  | 
 | 0c. | Testing Guide | [In the guide](https://github.com/ZeroPass/eosio.ck/blob/master/README.md#algorithm-testing=), we will describe how to run those tests. |
-| 0d. | Running it | We will provide Dockerized |
+| 0d. | Running it | We will re-deploy on the [Jungle 3 and CryptoKylin testnets](https://github.com/ZeroPass/ack/blob/master/README.md#testnet).|
 | 1. | Antelope SDK library | Optimized EC arithmetic by using another coordinate system, such as the Jacobian coordinate system or the mixed Jacobian/Chudnovsky system.
 | 2. | Antelope SDK library | Sha-384 |
 
@@ -123,12 +123,12 @@ Preliminary tests of using Jacobian coordinate system suggests a ~2-fold increas
 | 0a. | License | MIT |
 | 0b. | Documentation | Documentation and step by step guide will be updated in [README.md](https://github.com/ZeroPass/ack/blob/master/README.md).  | 
 | 0c. | Testing Guide | [In the guide](https://github.com/ZeroPass/eosio.ck/blob/master/README.md#algorithm-testing=), we will describe how to run those tests. |
-| 0d. | Running it | We will provide Dockerized |
-| 1. | Antelope SDK library | Node host functions (intrinsics) for modular arithmetic operations, which would replace the software functions in fp.hpp |
-| 2. | Antelope SDK library | Optimized EC arithmetic by using another coordinate system, such as the Jacobian coordinate system or the mixed Jacobian/Chudnovsky system.
-| 3. | Antelope SDK library | Sha-384 |
+| 0d. | Running it | We will re-deploy on the [Jungle 3 and CryptoKylin testnets](https://github.com/ZeroPass/ack/blob/master/README.md#testnet). |
+| 1. | Antelope SDK library | Implementation of P-384, P-512 NIST curves |
+| 2. | Antelope SDK library | Implementation of brainpoolP256r1, brainpoolP320r1, brainpoolP384r1, brainpoolP512r1 Brainpool curves |
+| 3. | Antelope SDK library | Implementing ECDSA key recovery from signature |
 
-Preliminary tests of using Jacobian coordinate system suggests a ~2-fold increase in speed using such a system.
+
 
 ## Future Plans
 **Expected Part 3 of the proposal**  
