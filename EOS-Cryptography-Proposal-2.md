@@ -22,14 +22,18 @@ https://pomelo.io/grants/bot4eden
 
 
 ### Overview
-We are proposing to add different signature verification algorithms for EOS. There are different ways to achieve this, but doing research and implementation of many libraries on [eos-cryptography-proposal](https://github.com/lukapercic/grant-framework/blob/main/applications/eos-cryptography-proposal.md) lands us on optimizing previous SDK library for smart contracts by using another coordinate system, such as the Jacobian system or the mixed Jacobian/Chudnovsky coordinate system. This will allow ACK library to squeze more preformance for existing curves, and those delived in this grant. P-256 is hitting 7ms in OC (optimized compilation), and for brainpool curves we fully expect over 10ms (especially the 512 bit ones).. 
-
+We are exploring ways to introduce new signature verification algorithms to EOS smart contracts, including RSA and algorithms based on elliptic curves. There are various approaches to achieve this, and our research of various libraries in the [eos-cryptography-proposal](https://github.com/lukapercic/grant-framework/blob/main/applications/eos-cryptography-proposal.md) led us to implement some of the algorithms in our own ACK cryptographic library.  
+Currently, signature verification using EC P-256 takes approximately ~7 ms in optimized compilation (OC). For brainpool curves, we anticipate the verification time to exceed 10 ms, particularly for the 512-bit curve(s). Through the optimizations proposed in this grant, we aim to extract more performance and significantly reduce the verification times. Additionally, we are proposing implementation of ECDSA key recovery algorithm, new elliptic curves, and the SHA-384 hashing algorithm into the ACK library, making them available for EOS smart contracts.
 
 ### Project Details
 
-We implemented a [Antelope Cryptography Kits](https://github.com/ZeroPass/ack) the fastest RSA implementation for EOSIO. It can ran RSA4096 verificaitons on the mainnet today. We also have a working [PoC Port smart contract](https://github.com/ZeroPass/eosio-port). The smart contract can already do passive and active passport attestation for passports based on RSA PKCS 1.5 PKI. 
+We have implemented a [Antelope Cryptography Kits](https://github.com/ZeroPass/ack), a cryptographic library for Antelope blockchain. This library supports basic elliptic curve mathematical operations, certain modular arithmetics, EC signature verification algorithms (P-256 and secp256k1), and the fastest RSA signature verification implementation for EOSIO. It can perform RSA-4096 verifications on the mainnet today. Furthermore, we have a working [PoC Port smart contract](https://github.com/ZeroPass/eosio-port). The smart contract can already do passive and active attestation of biometric passports which uses RSA PKCS 1.5 signature scheme. 
 
-The main goal of the previous grant was to research which other libraries we can dissects and use their parts to rebuild different ECC algos in universal way. We now have the specialization needed to deliver further EC optimization for modular arithmetic operations which will help us run existing curves more efficiently (P-256 is currently hitting 7ms), and curves implemented in this grant Nist (P-384, P-512) and especially heavier brainpool (brainpoolP256r1, brainpoolP320r1, brainpoolP384r1, brainpoolP512r1) in under 10ms with OC (Optimized Compilation) flag enabled.
+This proposal aims to optimize the current EC implementation in the ACK library and accelerate EC-based signature verification algorithms. Specifically, we intend to introduce another coordinate system, such as the Jacobian system or the mixed Jacobian/Chudnovsky coordinate system, with the goal of reducing the number of required EC division operations. This enhancement is expected to significantly boost performance.
+
+Furthermore, we are proposing the implementation of an ECDSA key recovery algorithm, which would reduce the need for the full public key during verification. Instead for example, a key hash could be utilized to verify the EC signature.
+
+Moreover, this proposal also aims to introduce widely used elliptic curves and the SHA-384 hashing algorithm (commonly used with some EC, such as P-384).
 
 ### Ecosystem Fit
 
@@ -64,18 +68,15 @@ Our most notable accomplishments in EOS community are:
 - [ack](https://github.com/ZeroPass/ack) - ECC primitives and ECDSA verification algorithms, RSA & Keccak hash algorithms cryptography library for Antelope smart contract.
 
 ### Team Code Repos
-
 - https://github.com/ZeroPass
 - https://github.com/ZeroPass/ack
 
  ### Team Members GitHub Accounts
-
 - https://github.com/smlu
 - https://github.com/nejc-skerjanc
 - https://github.com/lukapercic
 
 ### Team LinkedIn Profiles
-
 - https://www.linkedin.com/in/nejcskerjanc/
 - https://www.linkedin.com/in/crt-vavros/
 - https://www.linkedin.com/in/lukapercic/
