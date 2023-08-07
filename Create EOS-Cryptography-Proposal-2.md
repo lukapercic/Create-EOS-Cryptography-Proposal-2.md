@@ -93,13 +93,13 @@ We can also attach research from our documentation (which is not completly up to
 
 ## Development Roadmap
 
-- **Total Estimated Duration:** 3 months
-- **Full-Time Equivalent (FTE):**  12 FTE months
+- **Total Estimated Duration:** 12 weeks
+- **Full-Time Equivalent (FTE):**  36 FTE weeks
 - **Total Costs:** $55.000
 
 ### Milestone 1 - Optimization
-- **Estimated duration:** 3 month
-- **FTE:** 12 FTE months
+- **Estimated duration:** 12 weeks
+- **FTE:** 36 FTE weeks
 - **Costs:** $55,000 USD
 
 | Number | Deliverable | Specification |
@@ -107,23 +107,23 @@ We can also attach research from our documentation (which is not completly up to
 | 0a. | License | MIT |
 | 0b. | Documentation | Documentation and step by step guide will be updated in [README.md](https://github.com/ZeroPass/ack/blob/master/README.md).  | 
 | 0c. | Testing Guide | [In the guide](https://github.com/ZeroPass/eosio.ck/blob/master/README.md#algorithm-testing=), we will describe how to run those tests. |
-| 0d. | Running it | We will re-deploy on the [Jungle 3 and CryptoKylin testnets](https://github.com/ZeroPass/ack/blob/master/README.md#testnet).|
+| 0d. | Running it | We will re-deploy on the [Jungle 4](https://github.com/ZeroPass/ack/blob/master/README.md#testnet).|
 | 1. | Antelope SDK library | Optimized EC arithmetic by using another coordinate system, such as the Jacobian coordinate system or the mixed Jacobian/Chudnovsky system.
 | 2. | Antelope SDK library | Sha-384 |
 
 Preliminary tests of using Jacobian coordinate system suggests a ~2-fold increase in speed using such a system.
 
 ### Milestone 2 - Adding Curves
-- **Estimated duration:** 2 month
-- **FTE:** 6 FTE months
-- **Costs:** $36,000 USD
+- **Estimated duration:** 7 weeks
+- **FTE:** 21 FTE weeks
+- **Costs:** $32,000 USD
 
 | Number | Deliverable | Specification |
 | -----: | ----------- | ------------- |
 | 0a. | License | MIT |
 | 0b. | Documentation | Documentation and step by step guide will be updated in [README.md](https://github.com/ZeroPass/ack/blob/master/README.md).  | 
 | 0c. | Testing Guide | [In the guide](https://github.com/ZeroPass/eosio.ck/blob/master/README.md#algorithm-testing=), we will describe how to run those tests. |
-| 0d. | Running it | We will re-deploy on the [Jungle 3 and CryptoKylin testnets](https://github.com/ZeroPass/ack/blob/master/README.md#testnet). |
+| 0d. | Running it | We will re-deploy on the [Jungle 4](https://github.com/ZeroPass/ack/blob/master/README.md#testnet). |
 | 1. | Antelope SDK library | Implementation of P-384, P-512 NIST curves |
 | 2. | Antelope SDK library | Implementation of brainpoolP256r1, brainpoolP320r1, brainpoolP384r1, brainpoolP512r1 Brainpool curves |
 | 3. | Antelope SDK library | Implementing ECDSA key recovery from signature |
