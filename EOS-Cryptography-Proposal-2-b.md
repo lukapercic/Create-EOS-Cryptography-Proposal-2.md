@@ -132,6 +132,7 @@ Preliminary tests of using Jacobian coordinate system suggest a ~2-fold increase
 ## Future Plans
 **Expected Part 3 of the proposal**  
 - Implementation of EdDSA,
+- Writing a "system" contract so any outside contracts can consume it. That way BPs can deploy it on eosio.* account to enable Optimized Compilation (OC) in the EOS public chain. 
 
 **Pending additional research;**  
 Possibility of implementation for ECC curve alt_bn128 curve which is widely available on other major blockchain platforms like EVM and Polkadot.
