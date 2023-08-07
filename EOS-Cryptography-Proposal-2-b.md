@@ -23,11 +23,11 @@ https://pomelo.io/grants/bot4eden
 
 ### Overview
 We are exploring ways to introduce new signature verification algorithms to EOS smart contracts, including RSA and algorithms based on elliptic curves. There are various approaches to achieve this, and our research of various libraries in the [eos-cryptography-proposal](https://github.com/lukapercic/grant-framework/blob/main/applications/eos-cryptography-proposal.md) led us to implement some of the algorithms in our own ACK cryptographic library.  
-Currently, signature verification using EC P-256 takes approximately ~7 ms in optimized compilation (OC). For brainpool curves, we anticipate the verification time to exceed 10 ms, particularly for the 512-bit curve(s). Through the optimizations proposed in this grant, we aim to extract more performance and significantly reduce the verification times. Additionally, we are proposing implementation of ECDSA key recovery algorithm, new elliptic curves, and the SHA-384 hashing algorithm into the ACK library, making them available for EOS smart contracts.
+Currently, signature verification using EC P-256 takes approximately ~7 ms in optimized compilation (OC). For Brainpool curves, we anticipate the verification time to exceed 10 ms, particularly for the 512-bit curve(s). Through the optimizations proposed in this grant, we aim to extract more performance and significantly reduce the verification times. Additionally, we are proposing implementation of ECDSA key recovery algorithm, new elliptic curves, and the SHA-384 hashing algorithm into the ACK library, making them available for EOS smart contracts.
 
 ### Project Details
 
-We have implemented a [Antelope Cryptography Kits](https://github.com/ZeroPass/ack), a cryptographic library for Antelope blockchain. This library supports basic elliptic curve mathematical operations, certain modular arithmetics, EC signature verification algorithms (P-256 and secp256k1), and the fastest RSA signature verification implementation for EOSIO. It can perform RSA-4096 verifications on the mainnet today. Furthermore, we have a working [PoC Port smart contract](https://github.com/ZeroPass/eosio-port). The smart contract can already do passive and active attestation of biometric passports which uses RSA PKCS 1.5 signature scheme. 
+We have implemented [Antelope Cryptography Kits](https://github.com/ZeroPass/ack), a cryptographic library for the Antelope blockchain. This library supports basic elliptic curve mathematical operations, certain modular arithmetics, EC signature verification algorithms (P-256 and secp256k1), and the fastest RSA signature verification implementation for EOSIO. It can perform RSA-4096 verifications on the mainnet today. Furthermore, we have a working [PoC Port smart contract](https://github.com/ZeroPass/eosio-port). The smart contract can already do passive and active attestation of biometric passports which uses RSA PKCS 1.5 signature scheme. 
 
 This proposal aims to optimize the current EC implementation in the ACK library and accelerate EC-based signature verification algorithms. Specifically, we intend to introduce another coordinate system, such as the Jacobian system or the mixed Jacobian/Chudnovsky coordinate system, with the goal of reducing the number of required EC division operations. This enhancement is expected to significantly boost performance.
 
@@ -37,11 +37,11 @@ Moreover, this proposal also aims to introduce widely used elliptic curves and t
 
 ### Ecosystem Fit
 
-Port can be used as a better version of (anonymous) identity on the blockchain. It's open-source and open-access nature allows any dapp to plug into it, and profit from the infrastructure it provides. It fixes the issue with DIDs, where self-sovereign identity in the practice always gets implemented as one KYC provider signing the attestations. Here the passport proves authenticity itself, cutting the middle man and cutting friction associated with it. I.e.: removing the costs and needed trust (don't be evil, versus can't be evil). Adding different signature verification algorithms can serve as crypto primitive for Antelope, and upon which our contract can be built on. To expand the use-cases we are mainly focusing on: making the Port a native way for EOS to solve Sybil protection, Identity, and multiple levels of verifications.
+Port can be used as a better version of (anonymous) identity on the blockchain. Its open-source and open-access nature allows any dapp to plug into it, and profit from the infrastructure it provides. It fixes the issue with DIDs, where self-sovereign identity in the practice always gets implemented as one KYC provider signing the attestations. Here the passport proves authenticity itself, cutting the middle man and cutting friction associated with it. I.e.: removing the costs and needed trust (don't be evil, versus can't be evil). Adding different signature verification algorithms can serve as crypto primitive for Antelope, and upon which our contract can be built on. To expand the use cases we are mainly focusing on making the Port a native way for EOS to solve Sybil protection, Identity, and multiple levels of verifications.
 
-Right now, there are projects such as Pomelo and EOS Support integrating Port to help prevent Sybil attacks for their platforms (we would like to move it fully on-chain later). These signature verification algorithms will also benefit Randall Roland’s (CEO EOS Support) proposal that seeks to improve the user onboarding process of the RespectOS software. If successful, it might be the basis (or part of) the identity of the future EOS based DAOs.  We have been contacted by different NFT projects looking to do wide NFT drops, without the claimed abuse they detect right now. There are nice humanitarian applications, for instance, somebody can start an easy project to provide UBI-style donations to people with passports and IDs from affected countries. We are also defining new concept of Escape Tokens, that allows governance and distribution tokens to escape the main liquidity pair, and when thriving, its value overflow to Port identities in (UBI style). 
+Right now, there are projects such as Pomelo and EOS Support integrating Port to help prevent Sybil attacks for their platforms (we would like to move it fully on-chain later). These signature verification algorithms will also benefit Randall Roland’s (CEO EOS Support) proposal that seeks to improve the user onboarding process of the RespectOS software. If successful, it might be the basis (or part of) the identity of the future EOS-based DAOs.  We have been contacted by different NFT projects looking to do wide NFT drops, without the claimed abuse they detect right now. There are nice humanitarian applications, for instance, somebody can start an easy project to provide UBI-style donations to people with passports and IDs from affected countries. We are also defining a new concept of Escape Tokens, that allows governance and distribution tokens to escape the main liquidity pair, and when thriving, its value overflow to Port identities in (UBI style). 
 
-In short; it a real ID/Sybil building block that will enable many projects to plug and play. 
+In short; it is a real ID/Sybil building block that will enable many projects to plug and play. 
 
 ## Team
 
@@ -88,15 +88,13 @@ We painstakingly built, optimized, tested and deployed on the testnet to make it
 - https://github.com/ZeroPass/ack
 
 
-Our team built and deployed Port itself (server solution) that acts as our beta version for what we are trying to move on chain. In addition, we already experimented and built Port PoC smart contract for passport attestation on-chain (RSA PKCS 1.5 PKI only). 
-
-We can also attach research from our documentation (which is not completly up to date). It is presented in the [In-depth section](https://github.com/ZeroPass/Port-documentation-and-tools#in-depth).
+Our team built and deployed Port itself (server solution) which acts as our beta version for what we are trying to move on the chain. In addition, we already experimented and built Port PoC smart contract for passport attestation on-chain (RSA PKCS 1.5 PKI only). 
 
 ## Development Roadmap
 
-- **Total Estimated Duration:** 12 weeks
-- **Full-Time Equivalent (FTE):**  36 FTE weeks
-- **Total Costs:** $55.000
+- **Total Estimated Duration:** 19 weeks
+- **Full-Time Equivalent (FTE):**  57 FTE weeks
+- **Total Costs:** $87.000
 
 ### Milestone 1 - Optimization
 - **Estimated duration:** 12 weeks
@@ -106,13 +104,13 @@ We can also attach research from our documentation (which is not completly up to
 | Number | Deliverable | Specification |
 | -----: | ----------- | ------------- |
 | 0a. | License | MIT |
-| 0b. | Documentation | Documentation and step by step guide will be updated in [README.md](https://github.com/ZeroPass/ack/blob/master/README.md).  | 
+| 0b. | Documentation | Documentation and step-by-step guide will be updated in [README.md](https://github.com/ZeroPass/ack/blob/master/README.md).  | 
 | 0c. | Testing Guide | [In the guide](https://github.com/ZeroPass/eosio.ck/blob/master/README.md#algorithm-testing=), we will describe how to run those tests. |
 | 0d. | Running it | We will re-deploy on the [Jungle 4](https://github.com/ZeroPass/ack/blob/master/README.md#testnet).|
 | 1. | Antelope SDK library | Optimized EC arithmetic by using another coordinate system, such as the Jacobian coordinate system or the mixed Jacobian/Chudnovsky system.
 | 2. | Antelope SDK library | Sha-384 |
 
-Preliminary tests of using Jacobian coordinate system suggests a ~2-fold increase in speed using such a system.
+Preliminary tests of using Jacobian coordinate system suggest a ~2-fold increase in speed using such a system.
 
 ### Milestone 2 - Adding Curves
 - **Estimated duration:** 7 weeks
@@ -122,7 +120,7 @@ Preliminary tests of using Jacobian coordinate system suggests a ~2-fold increas
 | Number | Deliverable | Specification |
 | -----: | ----------- | ------------- |
 | 0a. | License | MIT |
-| 0b. | Documentation | Documentation and step by step guide will be updated in [README.md](https://github.com/ZeroPass/ack/blob/master/README.md).  | 
+| 0b. | Documentation | Documentation and step-by-step guide will be updated in [README.md](https://github.com/ZeroPass/ack/blob/master/README.md).  | 
 | 0c. | Testing Guide | [In the guide](https://github.com/ZeroPass/eosio.ck/blob/master/README.md#algorithm-testing=), we will describe how to run those tests. |
 | 0d. | Running it | We will re-deploy on the [Jungle 4](https://github.com/ZeroPass/ack/blob/master/README.md#testnet). |
 | 1. | Antelope SDK library | Implementation of P-384, P-512 NIST curves |
@@ -138,13 +136,13 @@ Preliminary tests of using Jacobian coordinate system suggests a ~2-fold increas
 **Pending additional research;**  
 Possibility of implementation for ECC curve alt_bn128 curve which is widely available on other major blockchain platforms like EVM and Polkadot.
 
-We are planning to rebuild [Port](https://port.link/) on-chain, and this proposal provides the crypto primitives needed to begin the process.
-Our RSA PKCS 1.5 implementation is also already used in our another project: [ROW](https://row.link/), which hopefully will one day become a full-fledged WebAuthn signer.
-In the more distant future we are also planning to build dapp on top these projects, using both on-chain Port and ROW projects as building blocks.
+We are planning to rebuild [Port](https://port.link/) on-chain and this proposal provides the crypto primitives needed to begin the process.
+Our RSA PKCS 1.5 implementation is also already used in another project: [ROW](https://row.link/), which hopefully will one day become a full-fledged WebAuthn signer.
+In the more distant future, we are also planning to build a dapp on top of these projects, using both on-chain Port and ROW projects as building blocks.
 
 ## Additional Information
 
 **How did you hear about the Grants Program?** 
 Telegram
 
-We also invite all to donate on Pomelo for our current [implementation of Port](https://pomelo.io/grants/ygc2lp2oe), and try increasing your Pomelo [Trust Bonus](https://pomelo.io/profile?tab=trust).
+We also invite all to donate on Pomelo for our current [implementation of Port](https://pomelo.io/grants/ygc2lp2oe) and try increasing your Pomelo [Trust Bonus](https://pomelo.io/profile?tab=trust).
